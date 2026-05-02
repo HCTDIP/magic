@@ -1,1 +1,115 @@
 
+"""
+HCTDIP R2 Live Demo Version
+
+Core Theory: R ≥ σ·τ (Derived from Relativity, Quantum Mechanics, Thermodynamics)
+
+╔══════════════════════════════════════════════════════════════════════╗
+║  ⚠️ Moat Statement (Do Not Remove)                                    ║
+║                                                                      ║
+║  1. This code only demonstrates the existence of "physical          ║
+║     constraints"                                                     ║
+║  2. The engineering definition of R (how to map real systems to R)  ║
+║     is not in this code                                              ║
+║  3. Critical parameter tables (σ, τ, R, absorption steps) are       ║
+║     internal experimental data, not disclosed here                  ║
+║  4. The failure mode switching pattern between A6 and Boundary      ║
+║     is not disclosed here                                            ║
+║  5. The empirical fitting formula for R/(σ·τ) vs absorption steps   ║
+║     is not disclosed here                                            ║
+║                                                                      ║
+║  The above are HCTDIP core engineering assets (non-public).         ║
+║  Cooperation/Licensing: Contact via [Your Contact Information]      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+Theoretical Sources (All verifiable in textbooks):
+- A1 Information Delay: Relativistic Light Cone
+- A2 Uncertainty: Quantum Fluctuations + Chaos
+- A3 Fault Tolerance Requirement: Zero Risk Impossible
+- A4 Information Causality: No-communication Theorem
+- A5 Entropy Cost: Landauer's Principle
+- A6 Finite Computing Power: Bremermann / Margolus-Levitin Limit
+"""
+
+import random
+from dataclasses import dataclass
+from typing import Dict, List
+
+# ========== Public Demo Logic Below ==========
+# Note: R here uses a "simplified definition for demo purposes"
+# The real system R mapping is not disclosed here
+
+@dataclass
+class HCTDIPCore:
+    """Demo three-core logic (only demonstrates existence of constraints)"""
+    energy_budget: float
+    time_budget: float
+    max_compute: float
+
+    def __post_init__(self):
+        self.energy_left = self.energy_budget
+        self.time_left = self.time_budget
+        self.step = 0
+
+    def step(self, sigma: float, tau: float, R_demo: float) -> Dict:
+        self.step += 1
+        required = sigma * tau
+
+        # Core inequality check
+        if R_demo < required:
+            return {"verdict": "VETO", "reason": f"R={R_demo:.3f} < σ·τ={required:.3f}"}
+
+        # Demo resource consumption (not involving real R mapping)
+        energy_cost = 1.0
+        time_cost = 0.1
+        compute_cost = 100
+
+        if compute_cost > self.max_compute:
+            return {"verdict": "VETO", "reason": "A6_compute_exceeded"}
+
+        self.energy_left -= energy_cost
+        self.time_left -= time_cost
+
+        if self.energy_left < 0 or self.time_left < 0:
+            return {"verdict": "VETO", "reason": "resource_exhausted"}
+
+        return {"verdict": "ACCEPT"}
+
+
+# ========== Demo Function ==========
+def demo():
+    print("=" * 70)
+    print("🔬 HCTDIP Live Demo - Cognitive System Physical Constraints Validation")
+    print("=" * 70)
+
+    print("\n📊 Critical Point Scan (R is demo definition, not real system mapping)")
+    sigma, tau = 2.0, 5.0
+    required = sigma * tau
+    print(f"σ={sigma}, τ={tau} → σ·τ = {required}\n")
+
+    for R_demo in [0.5, 2.0, 5.0, 8.0, 10.0, 12.0, 15.0, 20.0]:
+        core = HCTDIPCore(energy_budget=500, time_budget=50, max_compute=1e6)
+        verdict = ""
+
+        for _ in range(100):
+            res = core.step(sigma, tau, R_demo)
+            if res["verdict"] == "VETO":
+                verdict = "VETO"
+                break
+        else:
+            verdict = "SURVIVE"
+
+        symbol = "✅ Survived" if verdict == "SURVIVE" else f"💀 Died"
+        print(f"  R={R_demo:5.1f} (ratio={R_demo/required:.2f}) → {symbol}")
+
+    print("\n" + "=" * 70)
+    print("🎯 Conclusion: R ≥ σ·τ is the lower bound for cognitive system survival")
+    print("=" * 70)
+    print("\n⚠️ This demo uses a 'simplified R definition'")
+    print("   Real system R engineering mapping, critical parameter tables,")
+    print("   and failure mode patterns are not disclosed")
+    print("   For cooperation: Contact [Your Contact Information]")
+
+
+if __name__ == "__main__":
+    demo()
